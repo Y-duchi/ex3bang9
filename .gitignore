@@ -1,0 +1,74 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Local portfolio demo configuration and Python environments
+**/.env
+**/.env.local
+!**/.env.example
+backend/.env.local
+backend/.venv/
+backend/venv/
+backend/.pytest_cache/
+backend/**/__pycache__/
+backend/media/
+
+# Local mobile service configuration
+ios/Flutter/Secrets.xcconfig
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+android/app/google-services.json
+android/local.properties
+firebase.json
+config/flutter_defines.local.json
+
+# Locally licensed/private AR assets
+ios/Runner/models.scnassets/
+
+# Private project operations data and generated workbooks
+project-sync-mcp/data/
+project-sync-mcp/outputs/
+
+# Local demo runtime output
+.portfolio-demo/

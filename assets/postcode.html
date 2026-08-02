@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>주소 검색</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #wrap { height: 100%; }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+<script>
+    new daum.Postcode({
+      oncomplete: function(data) {
+        var fullAddr = data.address;
+        if (window.flutter_address_channel) {
+            window.flutter_address_channel.postMessage(fullAddr);
+        } else {
+            console.log("flutter_address_channel not found");
+        }
+      },
+      width: '100%',
+      height: '100%'
+    }).embed(document.getElementById('wrap'));
+</script>
+</body>
+</html>

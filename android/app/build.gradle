@@ -1,0 +1,80 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.example.bang9_test"
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.example.bang9_test"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 21 // 최소 19 이상 권장
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        manifestPlaceholders = [
+            googleMapsApiKey: localProperties.getProperty('GOOGLE_MAPS_API_KEY', 'DEMO_DISABLED'),
+            kakaoNativeAppKey: localProperties.getProperty('KAKAO_NATIVE_APP_KEY', 'DEMO_DISABLED'),
+        ]
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+// Portfolio builds do not use Firebase. Apply the plugin only after a local
+// configuration file has deliberately been supplied.
+if (file('google-services.json').exists()
+        && localProperties.getProperty('ENABLE_FIREBASE', 'false').toBoolean()) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation 'com.google.mlkit:text-recognition-korean:16.1.3'
+}
