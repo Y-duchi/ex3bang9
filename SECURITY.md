@@ -9,4 +9,4 @@
 - `DJANGO_DEBUG=false`인 환경에서는 `DJANGO_SECRET_KEY`를 반드시 설정합니다.
 - 공개 배포는 HTTPS, 명시적 `ALLOWED_HOSTS`·CORS origin, 별도 DB 계정과 비밀 저장소를 사용해야 합니다.
 
-과거 커밋에 포함된 키는 Git에서 지우는 것만으로 무효화되지 않습니다. Gmail, Naver, Google Maps, Firebase와 DB 자격증명은 공개 전 제공자 측에서 폐기·재발급해야 합니다.
+외부 서비스 자격증명은 저장소 밖에서 관리하며, 노출이 의심되면 제공자 콘솔에서 즉시 교체합니다.

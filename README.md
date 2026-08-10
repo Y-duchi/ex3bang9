@@ -33,7 +33,7 @@ cp backend/.env.example backend/.env.local
 - `android/local.properties`
 - Firebase의 `google-services.json`, `GoogleService-Info.plist`
 
-예전 Git 기록에 등장했던 Gmail, Naver, Google Maps, Django 키는 공개 전에 반드시 폐기하고 재발급해야 합니다. 예제 설정의 `DEMO_DISABLED`를 실제 서비스 키로 오해해 사용하면 안 됩니다.
+외부 서비스 연동이 필요한 경우, 각 제공자에서 발급한 값을 Git에 포함되지 않는 로컬 설정 파일에만 입력합니다.
 
 ## 비공개 데이터와 자산
 

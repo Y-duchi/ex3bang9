@@ -1,5 +1,5 @@
 # Flutter writes sdk.dir to local.properties automatically.
-# Add rotated keys only to your untracked local.properties file.
+# Add service credentials only to your untracked local.properties file.
 GOOGLE_MAPS_API_KEY=DEMO_DISABLED
 KAKAO_NATIVE_APP_KEY=DEMO_DISABLED
 ENABLE_FIREBASE=false
